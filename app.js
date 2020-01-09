@@ -17,8 +17,6 @@ const options = {
 
 const AfricasTalking = require("africastalking")(options);
 
-
-
 app.post("/", (req, res) => {
   //let sessionId = req.body.sessionId;
   //let phoneNumber = req.body.phoneNumber;
@@ -35,7 +33,10 @@ app.post("/", (req, res) => {
       response = "Your account balance is $100";
   }
 
-  res.status(200).send(response);
+  res
+    .header("Content-type: text/plain")
+    .status(200)
+    .send(response);
 });
 
 let port = process.env.PORT || 3000;
