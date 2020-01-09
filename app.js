@@ -1,34 +1,42 @@
 const express = require("express");
 let app = express();
 
+//parse form body
 let bodyParser = require("body-parser");
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
-
 // parse application/json
 app.use(bodyParser.json());
-app.use(express.json());
-//app.use(bodyParser.text());
 
+//post request
 app.post("/", (req, res) => {
+  /*
+    Here we are recieving the body params from Africa's talking
+ */
+
   //let sessionId = req.body.sessionId;
   let phone = req.body.phoneNumber;
   //let networkCode = req.body.networkCode;
   //let serviceCode = req.body.serviceCode;
+
   let text = req.body.text;
+
+  //init response
   let response = null;
 
   switch (text) {
+    // Business logic for first level response
     case "":
       response =
         "CON Welcome to Bank of Favour. What will you like to do today? \n  1. Manage account \n 2. Check phone number";
-
       break;
+
     case "1":
       response =
         "CON select an account option \n 1. Check account balance \n 2. Account number";
       break;
 
+    // Business logic for second level response
     case "2":
       response = `END Your phone number is ${phone}`;
       break;
@@ -40,6 +48,7 @@ app.post("/", (req, res) => {
       response = "END your account number is 0023478493";
   }
 
+  //sending response as plain text
   res
     .header("Content-type: text/plain")
     .status(200)
