@@ -17,9 +17,7 @@ const options = {
 
 const AfricasTalking = require("africastalking")(options);
 
-app.get("/", (req, res) => {
-  res.status(200).send("USSD NodeJs  - Africa's Talking");
-});
+
 
 app.post("/", (req, res) => {
   //let sessionId = req.body.sessionId;
@@ -34,13 +32,11 @@ app.post("/", (req, res) => {
       response = `Welcome to Bank of Favour. What do you want to to? \n 1. My account balance \n 1. Check phone number`;
       break;
     case "1":
-        response = "Your account balance is $100"
+      response = "Your account balance is $100";
   }
 
   res.status(200).send(response);
 });
-
-
 
 let port = process.env.PORT || 3000;
 app.listen(port, () => {
