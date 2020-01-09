@@ -20,15 +20,24 @@ app.post("/", (req, res) => {
 
   switch (text) {
     case "":
-      response = "CON Welcome to Bank of Favour. What will you like to do today? \n  1. My account balance \n 2. Check phone number";
+      response =
+        "CON Welcome to Bank of Favour. What will you like to do today? \n  1. Manage account \n 2. Check phone number";
 
       break;
     case "1":
-      response = "END Your account balance is $100";
+      response =
+        "CON select an account option \n 1. Check account balance \n 2. Account number";
       break;
 
     case "2":
       response = `END Your phone number is ${phone}`;
+      break;
+
+    case "1*1":
+      response = "END your account balance is $100";
+      break;
+    case "1*2":
+      response = "END your account number is 0023478493";
   }
 
   res
