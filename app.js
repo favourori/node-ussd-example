@@ -32,6 +32,9 @@ app.post("/", (req, res) => {
   switch (text) {
     case "":
       response = `Welcome to Bank of Favour. What do you want to to? \n 1. My account balance \n 1. Check phone number`;
+      break;
+    case "1":
+        response = "Your account balance is $100"
   }
 
   res.status(200).send(response);
