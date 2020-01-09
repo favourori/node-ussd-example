@@ -17,6 +17,10 @@ const options = {
 
 const AfricasTalking = require("africastalking")(options);
 
+app.get("/", (req, res) => {
+  res.status(200).send("USSD NodeJs  - Africa's Talking");
+});
+
 app.post("/", (req, res) => {
   //let sessionId = req.body.sessionId;
   //let phoneNumber = req.body.phoneNumber;
@@ -31,10 +35,6 @@ app.post("/", (req, res) => {
   }
 
   res.status(200).send(response);
-});
-
-app.get("/", (req, res) => {
-  res.send("First USSD app - Africa's Talking");
 });
 
 let port = 3000 || process.env.PORT;
