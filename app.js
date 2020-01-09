@@ -25,6 +25,7 @@ app.post("/", (req, res) => {
       break;
     case "1":
       response = "Your account balance is $100";
+      break;
   }
 
   res
