@@ -9,13 +9,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
-//configure options
-const options = {
-  apiKey: process.env.API_KEY, // use your sandbox app API key for development in the test environment
-  username: "sandbox" // use 'sandbox' for development in the test environment
-};
 
-const AfricasTalking = require("africastalking")(options);
 
 app.post("/", (req, res) => {
   //let sessionId = req.body.sessionId;
