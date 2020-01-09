@@ -12,7 +12,7 @@ app.use(express.json());
 
 app.post("/", (req, res) => {
   //let sessionId = req.body.sessionId;
-  //let phoneNumber = req.body.phoneNumber;
+  let phoneNumber = req.body.phoneNumber;
   //let networkCode = req.body.networkCode;
   //let serviceCode = req.body.serviceCode;
   let text = req.body.text;
@@ -21,14 +21,15 @@ app.post("/", (req, res) => {
   console.log(req.body);
   switch (text) {
     case "":
-      response = `CON Welcome to Bank of Favour. What will you like to do today? \n 
-      1. My account balance \n 
-      2. Check phone number`;
+      response = `CON Welcome to Bank of Favour. What will you like to do today? \n  1. My account balance \n 2. Check phone number`;
 
       break;
     case "1":
       response = "END Your account balance is $100";
       break;
+
+    case "2":
+      response = `Your phone number is ${phoneNumber} `;
   }
 
   res
