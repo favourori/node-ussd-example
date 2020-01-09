@@ -1,15 +1,14 @@
 const express = require("express");
 let app = express();
 require("dotenv").config();
-let bodyParser = require("body-parser");
 
+let bodyParser = require("body-parser");
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // parse application/json
 app.use(bodyParser.json());
-
-
+app.use(bodyParser.text({type:"*/*"}));
 
 app.post("/", (req, res) => {
   //let sessionId = req.body.sessionId;
