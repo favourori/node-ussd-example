@@ -24,7 +24,7 @@ app.post("/", (req, res) => {
       response = `CON Welcome to Bank of Favour. What do you want to to? \n 1. My account balance \n 2. Check phone number`;
       break;
     case "1":
-      response = "Your account balance is $100";
+      response = "END Your account balance is $100";
       break;
   }
 
