@@ -8,6 +8,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // parse application/json
 app.use(bodyParser.json());
 
+app.get("/", (req, res) => {
+  res.status(200).send("NodeJs USSD example - Africa's talking");
+});
+
 //post request
 app.post("/", (req, res) => {
   /*
